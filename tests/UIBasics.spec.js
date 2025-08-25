@@ -327,3 +327,54 @@ test('🧪 Validate Quotation Status Column with Debug Print', async ({ page }) 
 
   console.log('\n🎉 Debug complete! Use printed column index to finalize validation.');
 });
+
+// //------------------------------------------------------------------
+// import { test, expect } from '@playwright/test';
+// import path from 'path';
+// import fs from 'fs';
+// import { generateExcelReport } from './test data.js';
+
+// test('Login with valid credentials', async ({ page }) => {
+//   let screenshotPath = '';
+//   let step = 1;
+//   const screenshotsDir = path.resolve('./screenshots/web_test_TC04');
+//   if (!fs.existsSync(screenshotsDir)) fs.mkdirSync(screenshotsDir, { recursive: true });
+
+//   let result = 'PASS';
+//   let errorMsg = '';
+//   try {
+//     // Step 1: Navigate to login page
+//     console.log("Step 1: Navigate to login page");
+//     await page.goto('https://commandcenter-stg.farmbyte.com/login');
+//     await page.waitForLoadState('networkidle');
+//     screenshotPath = path.join(screenshotsDir, `step${step++}_login_page.png`);
+//     await page.screenshot({ path: screenshotPath });
+
+//     await page.locator('input[type="email"]').click();
+//     await page.locator('input[type="email"]').fill('superadmin001@gmail.com');
+//     await page.locator('input[type="password"]').click();
+//     await page.locator('input[type="password"]').fill('P@ssw0rd1');
+//     screenshotPath = path.join(screenshotsDir, `step${step++}_credentials_filled.png`);
+//     await page.screenshot({ path: screenshotPath });
+
+//     await page.getByRole('button', { name: 'toggle password visibility' }).click();
+//     screenshotPath = path.join(screenshotsDir, `step${step++}_password_visible.png`);
+//     await page.screenshot({ path: screenshotPath });
+
+//     await page.getByRole('button', { name: 'Login' }).click();
+
+//     // Optionally add assertion for login success
+//     // await expect(page).toHaveURL(/dashboard|home/);
+//   } catch (err) {
+//     result = 'FAIL';
+//     errorMsg = err.message;
+//   }
+
+//   await generateExcelReport({
+//     module: 'Web_Login',
+//     tcId: 'TC04',
+//     scenario: 'Login with valid credentials',
+//     result,
+//     screenshotDir: screenshotsDir,
+//   });
+// });

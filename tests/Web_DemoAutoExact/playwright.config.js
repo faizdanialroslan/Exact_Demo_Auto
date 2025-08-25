@@ -21,7 +21,8 @@ const config = ({
 
     browserName : 'chromium',
     headless: false,
-    trace: 'on-first-retry'
+    trace: 'on',
+    screenshot: 'only-on-failure',
 
   },
   

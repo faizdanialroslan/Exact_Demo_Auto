@@ -1,28 +1,31 @@
 // @ts-check
-import { defineConfig, devices } from '@playwright/test';
+const { devices } = require('@playwright/test');
 
-
-/**
- * @see https://playwright.dev/docs/test-configuration
- */
-const config = ({
+const config = {
   testDir: './tests',
-  timeout: 40 *1000,
-    expect : {
-      timeout: 40 *1000,
+  retries :0,
+  
+  /* Maximum time one test can run for. */
+  timeout: 30 * 1000,
+  expect: {
+  
+    timeout: 5000
   },
-
-  reporter : 'html',
-
+  
+  reporter: 'html',
+  /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
 
-
-  
-
     browserName : 'chromium',
-    headless: false
-
+    headless : true,
+    trace: 'on-first-retry',
+    screenshot: 'only-on-failure',
+    
+    
+    
   },
-  
-});
-module.exports = config
+
+
+};
+
+module.exports = config;
